@@ -4,11 +4,11 @@
         <div class="con_box_item" v-for="citme in titleObj" :key="citme">
             <div class="c_title">{{ citme }}</div>
             <div class="c_item">
-                <img :src="imgObj.imgUrl" alt="" v-for="imgObj in gameDetailList.slice(0, 3)" :key="imgObj.id"
+                <img src="@/assets/img/img1.png" alt="" v-for="imgObj in gameDetailList.slice(0, 3)" :key="imgObj.id"
                     @click="goDetail(imgObj.id)">
             </div>
             <div class="c_item" style="margin-top: 20px;">
-                <img :src="imgObj.imgUrl" alt="" v-for="imgObj in gameDetailList.slice(3, 6)" :key="imgObj.id"
+                <img src="@/assets/img/img1.png" alt="" v-for="imgObj in gameDetailList.slice(3, 6)" :key="imgObj.id"
                     @click="goDetail(imgObj.id)">
             </div>
         </div>
@@ -22,27 +22,27 @@ const router = useRouter();
 const gameDetailList = reactive([
     {
         id: 1,
-        imgUrl: '/src/assets/img/img1.png',
+        imgUrl: '../assets/img/img1.png',
     },
     {
         id: 2,
-        imgUrl: '/src/assets/img/img1.png',
+        imgUrl: '../assets/img/img1.png',
     },
     {
         id: 3,
-        imgUrl: '/src/assets/img/img1.png',
+        imgUrl: '../assets/img/img1.png',
     },
     {
         id: 4,
-        imgUrl: '/src/assets/img/img1.png',
+        imgUrl: '../assets/img/img1.png',
     },
     {
         id: 5,
-        imgUrl: '/src/assets/img/img1.png',
+        imgUrl: '../assets/img/img1.png',
     },
     {
         id: 6,
-        imgUrl: '/src/assets/img/img1.png',
+        imgUrl: '../assets/img/img1.png',
     },
 ])
 const titleObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best'])
