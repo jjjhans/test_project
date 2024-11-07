@@ -22,27 +22,21 @@ const router = useRouter();
 const gameDetailList = reactive([
     {
         id: 1,
-        imgUrl: '../assets/img/img1.png',
     },
     {
         id: 2,
-        imgUrl: '../assets/img/img1.png',
     },
     {
         id: 3,
-        imgUrl: '../assets/img/img1.png',
     },
     {
         id: 4,
-        imgUrl: '../assets/img/img1.png',
     },
     {
         id: 5,
-        imgUrl: '../assets/img/img1.png',
     },
     {
         id: 6,
-        imgUrl: '../assets/img/img1.png',
     },
 ])
 const titleObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best'])
