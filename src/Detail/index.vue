@@ -116,7 +116,7 @@ onMounted(() => {
     }
 
     .detail .info img {
-        width: 30%;
+        width: 29%;
         border-radius: 10px;
     }
 
