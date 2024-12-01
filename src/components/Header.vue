@@ -13,19 +13,17 @@
                 </div>
             </div>
             <!-- 搜索栏 -->
-            <div class="inpbox">
+            <div class="inpbox" v-if="true">
                 <input type="text" class="">
             </div>
+            <!-- 菜单 -->
+            <div v-else class="menu" @click="showMenu">
+                <div class="menuhr" :class="isShowMenu ? 'menuactive' : 'menuactive_leave'"></div>
+                <div class="menuhr" v-show="!isShowMenu"></div>
+                <div class="menuhr" :class="isShowMenu ? 'menuactive_other' : 'menuactive_other_leave'"></div>
+            </div>
         </div>
-        <!-- 菜单 -->
-        <div v-if="false">
-            <svg t="1730957633873" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                p-id="4744">
-                <path
-                    d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zM904 784H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zM904 472H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
-                    p-id="4745" fill="#ffffff"></path>
-            </svg>
-        </div>
+
     </div>
     <div class="navbox">
         <div class="itemlist">
@@ -44,11 +42,63 @@ const title = ref('mygamehubs')
 const navlist = reactive(['首页', '部门简介', '理论宣传', '求是新闻', '网信管理', '文化浙大', '党员之家', '服务指南'])
 //控制下拉菜单、
 const isShowMenu = ref(false)
-const showDownMenu = () => {
+const showMenu = () => {
     isShowMenu.value = !isShowMenu.value
 }
 </script>
 <style scoped lang="less">
+.menu {
+    position: relative;
+    height: 20px;
+    width: 25px;
+    // padding: 0.1px;
+
+    .menuhr {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+    }
+
+    .menuhr:first-child {
+        top: 10%;
+
+    }
+
+    .menuhr:nth-child(2) {
+        top: 50%;
+    }
+
+    .menuhr:last-child {
+        top: 90%;
+
+    }
+
+    .menuactive {
+        top: 50% !important;
+        transition: transform .4s ease-out;
+        transform: rotateZ(45deg);
+    }
+
+    .menuactive_leave {
+        top: 10% !important;
+        transition: top .4s ease-out;
+        transform: rotateZ(0deg);
+    }
+
+    .menuactive_other {
+        top: 50% !important;
+        transform: rotateZ(-45deg);
+        transition: transform .4s ease-out;
+    }
+
+    .menuactive_other_leave {
+        top: 90% !important;
+        transform: rotateZ(0deg);
+        transition: top .4s ease-out;
+    }
+}
+
 .header {
     width: 100%;
     background-color: var(--header-bgcolor);
