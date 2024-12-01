@@ -1,36 +1,24 @@
 <template>
-    <div class="downmenu" :class="isShowMenu ? 'toshow' : 'toclose'">
-        <div style="position: relative;width: 100%;text-align: center;">
-            <span style="font-size: 22px;cursor: pointer;font-weight: 700;" @click="router.push('/')">{{ title }}</span>
-            <span style="position: absolute;right: 15px;width: 20px;padding: 6px 0;" @click="isShowMenu = false">
-                <svg t="1730960959068" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" p-id="5750">
-                    <path
-                        d="M569.578831 512l378.213892-378.213892c15.805954-15.805954 15.805954-41.772878 0-57.578831s-41.772878-15.805954-57.578831 0l-378.213892 378.213892-378.213892-378.213892c-15.805954-15.805954-41.772878-15.805954-57.578831 0l0 0c-15.805954 15.805954-15.805954 41.772878 0 57.578831l378.213892 378.213892-378.213892 378.213892c-15.805954 15.805954-15.805954 41.772878 0 57.578831l0 0c15.805954 15.805954 41.772878 15.805954 57.578831 0l378.213892-378.213892 378.213892 378.213892c15.805954 15.805954 41.772878 15.805954 57.578831 0l0 0c15.805954-15.805954 15.805954-41.772878 0-57.578831L569.578831 512z"
-                        p-id="5751" fill="#ffffff"></path>
-                </svg>
-            </span>
-        </div>
-        <span v-for="item, index in textObj" :key="index">{{ item }}</span>
-    </div>
     <div class="header">
-        <!-- 返回 -->
-        <div class="svgbox" @click="router.push('/')">
-            <svg t="1730957419669" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                p-id="3750">
-                <path
-                    d="M853.333333 245.333333H245.333333l93.866667-93.866666c12.8-12.8 12.8-34.133333 0-46.933334-12.8-12.8-34.133333-12.8-46.933333 0l-145.066667 145.066667c-12.8 12.8-12.8 34.133333 0 46.933333l145.066667 145.066667c6.4 6.4 14.933333 10.666667 23.466666 10.666667s17.066667-4.266667 23.466667-10.666667c12.8-12.8 12.8-34.133333 0-46.933333L256 311.466667h597.333333c6.4 0 10.666667 4.266667 10.666667 10.666666v426.666667c0 6.4-4.266667 10.666667-10.666667 10.666667H170.666667c-17.066667 0-32 14.933333-32 32s14.933333 32 32 32h682.666666c40.533333 0 74.666667-34.133333 74.666667-74.666667V320c0-40.533333-34.133333-74.666667-74.666667-74.666667z"
-                    fill="#ffffff" p-id="3751"></path>
-            </svg>
-        </div>
-        <div class="title" @click="router.push('/')">{{ title }}</div>
-        <template v-if="true">
-            <div class="label_item">
-                <span v-for="item, index in textObj" :key="index">{{ item }}</span>
+        <div class="pc_header">
+            <!-- logo文字 -->
+            <div class="logowordbox">
+                <div class="logo-box">
+                    <img src="../assets/img/logo.png" alt="">
+                    <div class="vhr"></div>
+                    <div class="logotext">党委宣传部 <span>（新闻办公室 , 含网络信息办公室）</span></div>
+                </div>
+                <div class="lang-box">
+                    <img src="../assets/img/lang.png" alt="">
+                </div>
             </div>
-        </template>
+            <!-- 搜索栏 -->
+            <div class="inpbox">
+                <input type="text" class="">
+            </div>
+        </div>
         <!-- 菜单 -->
-        <div class="svgbox" @click="showDownMenu">
+        <div v-if="false">
             <svg t="1730957633873" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 p-id="4744">
                 <path
@@ -39,109 +27,134 @@
             </svg>
         </div>
     </div>
+    <div class="navbox">
+        <div class="itemlist">
+            <div class="navitem" v-for="nav, index in navlist" :key="index">{{ nav }}</div>
+        </div>
+    </div>
 </template>
 
 <script setup>
 import { ref, reactive } from "vue";
-import { useRoute, useRouter } from "vue-router";
-const route = useRoute();
-const router = useRouter();
+// import { useRoute, useRouter } from "vue-router";
+// const route = useRoute();
+// const router = useRouter();
 // 头部文本
 const title = ref('mygamehubs')
-const textObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best'])
+const navlist = reactive(['首页', '部门简介', '理论宣传', '求是新闻', '网信管理', '文化浙大', '党员之家', '服务指南'])
 //控制下拉菜单、
 const isShowMenu = ref(false)
 const showDownMenu = () => {
     isShowMenu.value = !isShowMenu.value
 }
 </script>
-<style scoped>
-.downmenu {
-    position: absolute;
-    width: 100%;
-    height: 300px;
-    background-color: #fb9a57;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
-    color: #ffffff;
-    transition: all .2s ease-out;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.toclose {
-    transform: translateY(-301px);
-}
-
-.toshow {
-    transform: translateY(0px);
-}
-
+<style scoped lang="less">
 .header {
     width: 100%;
-    height: 65px;
-    padding: 0px 80px;
-    font-weight: 700;
+    background-color: var(--header-bgcolor);
+    background-image: url('../assets/img/bg.png');
+    background-size: cover;
+    // text-align: center;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
+    justify-content: center;
+    padding: 1% 0;
 }
 
-.svgbox {
-    display: none;
+.navbox {
+    width: 100%;
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: center;
+    height: 6cqh;
+    font-size: 1.1vw;
+
+    .itemlist {
+        width: 80%;
+        height: 100%;
+        // display: grid;
+        // grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        // justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .navitem {
+            cursor: pointer;
+            height: 100%;
+            width: 6cqw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover {
+                background-color: #d8d8d8;
+            }
+        }
+    }
+
 }
 
-.header .title {
-    font-size: 26px;
-    cursor: pointer;
-}
-
-.header>.label_item {
-    width: 50%;
+.pc_header {
+    width: 80%;
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+
+    .inpbox {
+        border-radius: 20px;
+        border: 0;
+        height: 5vh;
+        background-color: #fff;
+        /* overflow: hidden; */
+        padding: 0 15px;
+
+        input {
+            border: 0;
+            outline: 0;
+            width: 10vw;
+            height: 100%;
+            display: block;
+        }
+    }
 }
 
-.header>.label_item>span {
-    transition: all .1s linear;
+.logowordbox {
+    width: 60%;
 
-}
-
-.header>.label_item>span:hover {
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-/* 当屏幕宽度小于750px时 */
-@media screen and (max-width: 750px) {
-    .header {
+    .logo-box {
         width: 100%;
-        height: 65px;
-        padding: 0px 10px;
-        font-weight: 700;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        color: #fff;
+        margin-bottom: 4%;
+        gap: 4%;
+
+        .logotext {
+            color: #fff;
+            font-size: 1.4vw;
+            font-family: "FZXBSJW";
+
+            span {
+                font-size: 0.63em;
+                font-weight: 400;
+            }
+        }
+
+        .vhr {
+            width: 0.5px;
+            height: 5cqh;
+            background-color: #fff;
+        }
     }
-
-    .svgbox {
-        display: flex;
-        height: 100%;
-        width: 10%;
-    }
-
-    .header>.label_item {
-        display: none;
-    }
+}
 
 
+
+.logo-box img {
+    width: 40%;
+}
+
+.lang-box img {
+    width: 100%;
 }
 </style>

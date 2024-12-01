@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+html {
+  --header-bgcolor: #b01f24;
+}
+
+@font-face {
+  font-family: 'FZXBSJW';
+  /* 定义一个字体族名 */
+  src: url('./assets/font/FZXBSJW.ttf') format('truetype');
+  /* 字体文件路径和格式 */
+}
 
 a {
   font-weight: 500;
@@ -14,15 +24,3 @@ a {
 a:hover {
   color: #535bf2;
 }
-
-body {
-  background-attachment: fixed;
-  background-image: linear-gradient(to bottom, #f97316, #ffffff, rgba(249, 115, 22, 0));
-}
-
-/* 
-@media screen and (max-width:600px) {
-  body {
-    overflow: auto;
-  }
-} */
