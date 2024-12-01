@@ -21,6 +21,36 @@
 </template>
 <script setup></script>
 <style scoped lang="less">
+@media screen and (max-width:700px) {
+    .footer {
+        flex-direction: column;
+
+        .vhr {
+            display: none;
+        }
+
+        .text-c {
+            font-size: 4.08vw !important;
+        }
+
+        .text_adress {
+            font-size: 2.8vw !important;
+        }
+
+        .linklist {
+            &>div {
+                width: 55vw !important;
+                font-size: 3.8vw !important;
+            }
+        }
+
+        .fromwhere {
+            font-size: 2.8vw !important;
+            width: 54% !important;
+        }
+    }
+}
+
 .footer {
     width: 100%;
     background-image: url('../assets/img/footbg.png');

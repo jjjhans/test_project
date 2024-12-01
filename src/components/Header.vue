@@ -1,4 +1,13 @@
 <template>
+    <div class="downmenu" :class="isShowMenu ? 'toshow' : 'toclose'">
+        <span v-for="item, index in navlist" :key="index">{{ item }}</span>
+    </div>
+    <!-- 菜单 -->
+    <div class="menu" @click="showMenu">
+        <div class="menuhr" :class="isShowMenu ? 'menuactive' : 'menuactive_leave'"></div>
+        <div class="menuhr" v-show="!isShowMenu"></div>
+        <div class="menuhr" :class="isShowMenu ? 'menuactive_other' : 'menuactive_other_leave'"></div>
+    </div>
     <div class="header">
         <div class="pc_header">
             <!-- logo文字 -->
@@ -12,24 +21,19 @@
                     <img src="../assets/img/lang.png" alt="">
                 </div>
             </div>
-            <!-- 搜索栏 -->
-            <div class="inpbox" v-if="true">
-                <input type="text" class="">
-            </div>
-            <!-- 菜单 -->
-            <div v-else class="menu" @click="showMenu">
-                <div class="menuhr" :class="isShowMenu ? 'menuactive' : 'menuactive_leave'"></div>
-                <div class="menuhr" v-show="!isShowMenu"></div>
-                <div class="menuhr" :class="isShowMenu ? 'menuactive_other' : 'menuactive_other_leave'"></div>
-            </div>
         </div>
-
+        <!-- 搜索栏 -->
+        <div class="inpbox">
+            <input type="text" class="">
+            <img src="../assets/img/search.png" alt="">
+        </div>
     </div>
     <div class="navbox">
         <div class="itemlist">
             <div class="navitem" v-for="nav, index in navlist" :key="index">{{ nav }}</div>
         </div>
     </div>
+    <div></div>
 </template>
 
 <script setup>
@@ -47,15 +51,40 @@ const showMenu = () => {
 }
 </script>
 <style scoped lang="less">
+.downmenu {
+    position: absolute;
+    width: 100%;
+    height: 40vh;
+    background-color: var(--header-bgcolor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: #ffffff;
+    transition: all .4s ease-out;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.toclose {
+    transform: translateY(-40.1vh);
+}
+
+.toshow {
+    transform: translateY(0px);
+}
+
 .menu {
     position: relative;
     height: 20px;
-    width: 25px;
-    // padding: 0.1px;
+    display: none;
+    z-index: 999;
 
     .menuhr {
         position: absolute;
-        width: 100%;
+        width: 25px;
         height: 2px;
         background-color: #fff;
     }
@@ -106,8 +135,9 @@ const showMenu = () => {
     background-size: cover;
     // text-align: center;
     display: flex;
-    justify-content: center;
-    padding: 1% 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 10%;
 }
 
 .navbox {
@@ -145,27 +175,39 @@ const showMenu = () => {
 }
 
 .pc_header {
-    width: 80%;
+    // width: 80%;
     height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .inpbox {
-        border-radius: 20px;
-        border: 0;
-        height: 5vh;
-        background-color: #fff;
-        /* overflow: hidden; */
-        padding: 0 15px;
 
-        input {
-            border: 0;
-            outline: 0;
-            width: 10vw;
-            height: 100%;
-            display: block;
-        }
+}
+
+.inpbox {
+    border-radius: 20px;
+    border: 0;
+    height: 5vh;
+    background-color: #fff;
+    /* overflow: hidden; */
+    padding: 0 15px;
+    position: relative;
+
+    input {
+        border: 0;
+        outline: 0;
+        width: 10vw;
+        height: 100%;
+        display: block;
+    }
+
+    img {
+        position: absolute;
+        right: 6%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12%;
+
     }
 }
 
@@ -198,13 +240,50 @@ const showMenu = () => {
     }
 }
 
-
-
 .logo-box img {
     width: 40%;
 }
 
 .lang-box img {
     width: 100%;
+}
+
+@media screen and (max-width:700px) {
+    .logowordbox {
+        width: 100%;
+
+        .logo-box {
+            margin-bottom: 0;
+
+
+            .logotext {
+                display: none;
+            }
+
+            .vhr {
+                display: none;
+            }
+        }
+    }
+
+
+    .inpbox {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+        position: absolute !important;
+        right: 16% !important;
+        top: 1% !important;
+    }
+
+    .lang-box img {
+        display: none;
+    }
+
+    .navbox {
+        display: none;
+    }
 }
 </style>

@@ -26,7 +26,7 @@
             </div>
             <!-- 通知公告 -->
             <div>
-                <div class="headbox">
+                <div class="headbox" style="margin-bottom: 9%;">
                     <div class="theme-name">通知公告</div>
                     <div class="more">
                         <div>查看更多</div>
@@ -73,7 +73,7 @@
             </div>
             <!-- 服务指南 -->
             <div>
-                <div class="headbox">
+                <div class="headbox" style="margin-bottom: 9%;">
                     <div class="theme-name">服务指南</div>
                     <div class="more">
                         <div>查看更多</div>
@@ -85,9 +85,9 @@
                         v-for="item, index in serviceList" :key="index" @mouseenter="mouseenter(index)"
                         @mouseleave="activeindex = null">
                         <div class="direction">
-                            <img :src="item.imgUrl_W" alt="" v-if="activeindex == index">
-                            <img :src="item.imgUrl" alt="" v-else>
-                            <span>下载专区</span>
+                            <img src="../assets/img/iconb_white.png" alt="" v-if="activeindex == index">
+                            <img src="../assets/img/iconb.png" alt="" v-else>
+                            <span>{{ item.name }}</span>
                         </div>
                         <div class="go">></div>
                     </div>
@@ -105,32 +105,39 @@ import { ref, reactive } from "vue";
 const activeindex = ref(null)
 const serviceList = reactive([
     {
-        imgUrl: '../assets/img/icona.png',
-        imgUrl_W: '../assets/img/icona_white.png',
+        // imgUrl: '../assets/img/icona.png',
+        // imgUrl_W: '../assets/img/icona_white.png',
+        name: "下载专区",
     },
     {
-        imgUrl: '../assets/img/iconb.png',
-        imgUrl_W: '../assets/img/iconb_white.png',
+        // imgUrl: '../assets/img/iconb.png',
+        // imgUrl_W: '../assets/img/iconb_white.png',
+        name: "启真新论投稿入口",
     },
     {
-        imgUrl: '../assets/img/iconc.png',
-        imgUrl_W: '../assets/img/iconc_white.png',
+        // imgUrl: '../assets/img/iconc.png',
+        // imgUrl_W: '../assets/img/iconc_white.png',
+        name: "论坛活动申报系统",
     },
     {
-        imgUrl: '../assets/img/icond.png',
-        imgUrl_W: '../assets/img/icond_white.png',
+        // imgUrl: '../assets/img/icond.png',
+        // imgUrl_W: '../assets/img/icond_white.png',
+        name: "媒体宣传对外服务专区",
     },
     {
-        imgUrl: '../assets/img/icone.png',
-        imgUrl_W: '../assets/img/icone_white.png',
+        // imgUrl: '../assets/img/icone.png',
+        // imgUrl_W: '../assets/img/icone_white.png',
+        name: "新媒体平台备案审批系统",
     },
     {
-        imgUrl: '../assets/img/iconf.png',
-        imgUrl_W: '../assets/img/iconf_white.png',
+        // imgUrl: '../assets/img/iconf.png',
+        // imgUrl_W: '../assets/img/iconf_white.png',
+        name: "文化建设项目网上申报系统",
     },
     {
-        imgUrl: '../assets/img/icong.png',
-        imgUrl_W: '../assets/img/icong_white.png',
+        // imgUrl: '../assets/img/icong.png',
+        // imgUrl_W: '../assets/img/icong_white.png',
+        name: "优秀网络",
     }
 ])
 // 鼠标进入变化
@@ -141,11 +148,99 @@ const titleObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best
 
 </script>
 <style scoped lang="less">
+@media screen and (max-width:700px) {
+    .new-container {
+        flex-direction: column;
+    }
+
+    .new-container>div:last-child {
+        width: 100% !important;
+    }
+
+    .theme-name {
+        font-size: 4.45vw !important;
+    }
+
+    .more {
+        font-size: 2.8vw !important;
+
+        &>div:last-child {
+            width: 3.92vw !important;
+            height: 3.9vw !important;
+            line-height: 3.85vw !important;
+        }
+    }
+
+    .new-container .newbox .text {
+        font-size: 1.8vw !important;
+    }
+
+    .topiclist {
+        .topicitem {
+            padding: 1.6% 0 2% !important;
+            font-size: 2.9vw !important;
+        }
+    }
+
+    .special-topic {
+        display: block !important;
+    }
+
+    .theory-container {
+        display: block !important;
+    }
+
+    .theory-container>div:first-child {
+        width: 100% !important;
+    }
+
+    .direction {
+        font-size: 4.08vw !important;
+    }
+
+    .go {
+        font-size: 5.2vw !important;
+    }
+
+    .direction img {
+        width: 5vw !important;
+        height: 4.9vw !important;
+    }
+
+    .footer {
+        flex-direction: column;
+
+        .vhr {
+            display: none;
+        }
+
+        .text-c {
+            font-size: 4.08vw !important;
+        }
+
+        .text_adress {
+            font-size: 2.8vw !important;
+        }
+
+        .linklist {
+            &>div {
+                width: 55vw !important;
+                font-size: 3.8vw !important;
+            }
+        }
+
+        .fromwhere {
+            font-size: 2.8vw !important;
+            width: 54% !important;
+        }
+    }
+}
+
 .home {
     width: 100%;
     // display: flex;
     // justify-content: center;
-    padding: 5vh 0;
+    padding: 2% 0;
 }
 
 .new-container {
@@ -164,7 +259,7 @@ const titleObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best
     .headbox {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 6vh;
+        margin-bottom: 6%;
 
         .theme-name {
             font-size: 1.45vw;
@@ -177,7 +272,7 @@ const titleObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best
                 width: 50%;
                 height: 2px;
                 position: absolute;
-                bottom: -50%;
+                bottom: -48%;
                 left: 0;
             }
         }
@@ -221,7 +316,7 @@ const titleObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best
             position: absolute;
             bottom: 5%;
             color: #fff;
-            font-size: 0.8vw;
+            font-size: 1vw;
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -293,7 +388,7 @@ const titleObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 2%;
-    padding: 8vh 0;
+    padding: 3% 0;
 
     img {
         width: 100%;
@@ -318,7 +413,7 @@ const titleObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best
     .headbox {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 6vh;
+        margin-bottom: 6%;
 
         .theme-name {
             font-size: 1.45vw;
@@ -331,7 +426,7 @@ const titleObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best
                 width: 50%;
                 height: 2px;
                 position: absolute;
-                bottom: -50%;
+                bottom: -48%;
                 left: 0;
             }
         }
