@@ -105,32 +105,32 @@ import { ref, reactive } from "vue";
 const activeindex = ref(null)
 const serviceList = reactive([
     {
-        imgUrl: '../assets/img/icon1.png',
-        imgUrl_W: '../assets/img/icon1_white.png',
+        imgUrl: '../assets/img/icona.png',
+        imgUrl_W: '../assets/img/icona_white.png',
     },
     {
-        imgUrl: '../assets/img/icon2.png',
-        imgUrl_W: '../assets/img/icon2_white.png',
+        imgUrl: '../assets/img/iconb.png',
+        imgUrl_W: '../assets/img/iconb_white.png',
     },
     {
-        imgUrl: '../assets/img/icon3.png',
-        imgUrl_W: '../assets/img/icon3_white.png',
+        imgUrl: '../assets/img/iconc.png',
+        imgUrl_W: '../assets/img/iconc_white.png',
     },
     {
-        imgUrl: '../assets/img/icon4.png',
-        imgUrl_W: '../assets/img/icon4_white.png',
+        imgUrl: '../assets/img/icond.png',
+        imgUrl_W: '../assets/img/icond_white.png',
     },
     {
-        imgUrl: '../assets/img/icon5.png',
-        imgUrl_W: '../assets/img/icon5_white.png',
+        imgUrl: '../assets/img/icone.png',
+        imgUrl_W: '../assets/img/icone_white.png',
     },
     {
-        imgUrl: '../assets/img/icon6.png',
-        imgUrl_W: '../assets/img/icon6_white.png',
+        imgUrl: '../assets/img/iconf.png',
+        imgUrl_W: '../assets/img/iconf_white.png',
     },
     {
-        imgUrl: '../assets/img/icon7.png',
-        imgUrl_W: '../assets/img/icon7_white.png',
+        imgUrl: '../assets/img/icong.png',
+        imgUrl_W: '../assets/img/icong_white.png',
     }
 ])
 // 鼠标进入变化
