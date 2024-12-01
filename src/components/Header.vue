@@ -38,11 +38,6 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-// import { useRoute, useRouter } from "vue-router";
-// const route = useRoute();
-// const router = useRouter();
-// 头部文本
-const title = ref('mygamehubs')
 const navlist = reactive(['首页', '部门简介', '理论宣传', '求是新闻', '网信管理', '文化浙大', '党员之家', '服务指南'])
 //控制下拉菜单、
 const isShowMenu = ref(false)

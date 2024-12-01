@@ -144,8 +144,6 @@ const serviceList = reactive([
 const mouseenter = (index) => {
     activeindex.value = index
 }
-const titleObj = reactive(['Beauty', 'Puzzle', 'Sports', 'Home', 'Action', 'Best'])
-
 </script>
 <style scoped lang="less">
 @media screen and (max-width:700px) {
