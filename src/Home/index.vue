@@ -327,7 +327,8 @@ const mouseenter = (index) => {
             }
 
             .nav {
-                width: 10%;
+                width: 15%;
+                text-align: center;
 
                 &>span {
                     display: inline-block;
